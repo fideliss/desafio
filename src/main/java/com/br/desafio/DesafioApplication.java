@@ -1,4 +1,4 @@
-package com.desafio.desafio;
+package com.br.desafio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
