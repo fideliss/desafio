@@ -50,6 +50,12 @@ public class DepartamentoService {
         return mapper.toDto(departamentos);
     }
 
+    public DepartamentoDTO buscar(Long id) {
+        Optional<Departamento> departamentoOp = repository.findById(id);
+
+        return departamentoOp.map(mapper::toDto).orElse(null);
+    }
+
     public void remover(Long id) {
         repository.deleteById(id);
     }

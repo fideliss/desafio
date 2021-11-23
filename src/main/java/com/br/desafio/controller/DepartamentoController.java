@@ -33,6 +33,12 @@ public class DepartamentoController {
         return ResponseEntity.ok(departamentos);
     }
 
+    @GetMapping("/list/{id}")
+    public ResponseEntity<DepartamentoDTO> buscar(@PathVariable("id") Long id) {
+        DepartamentoDTO departamento = service.buscar(id);
+        return ResponseEntity.ok(departamento);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> remover(@PathVariable("id") Long id) {
         service.remover(id);

@@ -2,6 +2,7 @@ package com.br.desafio.service;
 
 import com.br.desafio.domain.Departamento;
 import com.br.desafio.domain.Funcionario;
+import com.br.desafio.dto.DepartamentoDTO;
 import com.br.desafio.dto.FuncionarioDTO;
 import com.br.desafio.mapper.FuncionarioMapper;
 import com.br.desafio.repository.FuncionarioRepository;
@@ -49,6 +50,9 @@ public class FuncionarioService {
             }
 
             if (Objects.nonNull(funcionarioDto.getSupervisor())) {
+                if (Objects.isNull(funcionario.getSupervisor())) {
+                    funcionario.setSupervisor(new Funcionario());
+                }
                 funcionario.getSupervisor().setId(funcionarioDto.getSupervisor().getId());
             }
 
@@ -64,6 +68,12 @@ public class FuncionarioService {
         List<Funcionario> funcionarios = repository.findAll();
 
         return mapper.toDto(funcionarios);
+    }
+
+    public FuncionarioDTO buscar(Long id) {
+        Optional<Funcionario> funcionarioOp = repository.findById(id);
+
+        return funcionarioOp.map(mapper::toDto).orElse(null);
     }
 
     public void remover(Long id) {

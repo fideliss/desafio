@@ -34,11 +34,4 @@ public class Funcionario extends BaseEntity {
     @JoinColumn(name = "supervisor_id", referencedColumnName = "id")
     private Funcionario supervisor;
 
-    @ManyToMany
-    @JoinTable(
-            name = "funcionario_projeto",
-            joinColumns = @JoinColumn(name = "funcionario_id"),
-            inverseJoinColumns = @JoinColumn(name = "projeto_id"))
-    private Set<Projeto> projetos;
-
 }

@@ -35,6 +35,12 @@ public class FuncionarioController {
         return ResponseEntity.ok(funcionarios);
     }
 
+    @GetMapping("/list/{id}")
+    public ResponseEntity<FuncionarioDTO> buscar(@PathVariable("id") Long id) {
+        FuncionarioDTO funcionario = service.buscar(id);
+        return ResponseEntity.ok(funcionario);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> remover(@PathVariable("id") Long id) {
         service.remover(id);

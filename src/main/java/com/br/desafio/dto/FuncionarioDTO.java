@@ -23,6 +23,4 @@ public class FuncionarioDTO extends BaseDTO {
 
     private FuncionarioDTO supervisor;
 
-    private Set<ProjetoDTO> projetos;
-
 }
