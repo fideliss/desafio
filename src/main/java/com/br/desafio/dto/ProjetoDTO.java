@@ -5,10 +5,10 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class DepartamentoDTO extends BaseDTO {
+public class ProjetoDTO extends BaseDTO {
 
     private String nome;
 
-    private Long numero;
+    private DepartamentoDTO departamento;
 
 }
