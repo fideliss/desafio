@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
@@ -18,6 +20,15 @@ public class Projeto extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "departamento_id")
     private Departamento departamento;
+
+    @Column
+    private BigDecimal valor;
+
+    @Column
+    private LocalDate dataInicio;
+
+    @Column
+    private LocalDate dataFim;
 
     @ManyToMany
     @JoinTable(

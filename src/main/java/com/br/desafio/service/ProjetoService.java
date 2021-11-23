@@ -37,6 +37,9 @@ public class ProjetoService {
         if (projetoOp.isPresent()) {
             Projeto projeto = projetoOp.get();
             projeto.setNome(projetoDto.getNome());
+            projeto.setValor(projetoDto.getValor());
+            projeto.setDataInicio(projetoDto.getDataInicio());
+            projeto.setDataFim(projetoDto.getDataFim());
 
             if (Objects.nonNull(projetoDto.getDepartamento())) {
                 if (Objects.isNull(projeto.getDepartamento())) {

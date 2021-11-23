@@ -44,6 +44,7 @@ public class FuncionarioService {
             funcionario.setCpf(funcionarioDto.getCpf());
             funcionario.setDataNascimento(funcionarioDto.getDataNascimento());
             funcionario.setSexo(funcionarioDto.getSexo());
+            funcionario.setSalario(funcionarioDto.getSalario());
 
             if (Objects.nonNull(funcionarioDto.getEndereco())) {
                 funcionario.getEndereco().setPais(funcionarioDto.getEndereco().getPais());

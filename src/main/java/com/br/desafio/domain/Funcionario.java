@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -33,5 +34,8 @@ public class Funcionario extends BaseEntity {
     @OneToOne
     @JoinColumn(name = "supervisor_id", referencedColumnName = "id")
     private Funcionario supervisor;
+
+    @Column
+    private BigDecimal salario;
 
 }

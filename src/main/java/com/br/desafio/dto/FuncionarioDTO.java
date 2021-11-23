@@ -4,6 +4,7 @@ import com.br.desafio.enumeration.Sexo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -22,5 +23,7 @@ public class FuncionarioDTO extends BaseDTO {
     private EnderecoDTO endereco;
 
     private FuncionarioDTO supervisor;
+
+    private BigDecimal salario;
 
 }

@@ -35,6 +35,9 @@ public class DepartamentoService {
             Departamento departamento = departamentoOp.get();
             departamento.setNome(departamentoDto.getNome());
             departamento.setNumero(departamentoDto.getNumero());
+            departamento.setOrcamento(departamentoDto.getOrcamento());
+            departamento.setDataInicio(departamentoDto.getDataInicio());
+            departamento.setDataFim(departamentoDto.getDataFim());
 
             repository.save(departamento);
 
