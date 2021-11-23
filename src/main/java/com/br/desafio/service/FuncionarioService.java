@@ -1,8 +1,6 @@
 package com.br.desafio.service;
 
-import com.br.desafio.domain.Departamento;
 import com.br.desafio.domain.Funcionario;
-import com.br.desafio.dto.DepartamentoDTO;
 import com.br.desafio.dto.FuncionarioDTO;
 import com.br.desafio.mapper.FuncionarioMapper;
 import com.br.desafio.repository.FuncionarioRepository;
