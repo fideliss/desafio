@@ -136,4 +136,9 @@ public class ProjetoService {
         return mapper.toDto(projetos);
     }
 
+    public List<ProjetoDTO> buscarPorDepartamento(Long departamentoId) {
+        List<Projeto> projetos = repository.buscarPorDepartamento(departamentoId);
+        return mapper.toDto(projetos);
+    }
+
 }

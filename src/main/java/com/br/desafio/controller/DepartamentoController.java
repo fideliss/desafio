@@ -1,6 +1,7 @@
 package com.br.desafio.controller;
 
 import com.br.desafio.dto.DepartamentoDTO;
+import com.br.desafio.enumeration.StatusOrcamento;
 import com.br.desafio.service.DepartamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -43,6 +44,12 @@ public class DepartamentoController {
     public ResponseEntity<Void> remover(@PathVariable("id") Long id) {
         service.remover(id);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/verificar-status/{id}")
+    public ResponseEntity<StatusOrcamento> verificarStatus(@PathVariable("id") Long id) {
+        StatusOrcamento statusOrcamento = service.verificarStatusOrcamento(id);
+        return ResponseEntity.ok(statusOrcamento);
     }
 
 }

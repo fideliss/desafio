@@ -16,4 +16,8 @@ public interface ProjetoRepository extends JpaRepository<Projeto, Long> {
             "WHERE fp.funcionario_id = :funcionarioId", nativeQuery = true)
     List<Projeto> buscarPorFuncionario(@Param("funcionarioId") Long funcionarioId);
 
+    @Query(value = "SELECT * FROM projeto p WHERE p.departamento_id = :departamentoId",
+            nativeQuery = true)
+    List<Projeto> buscarPorDepartamento(@Param("departamentoId") Long departamentoId);
+
 }
