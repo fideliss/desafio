@@ -2,6 +2,7 @@ package com.br.desafio.service;
 
 import com.br.desafio.domain.Funcionario;
 import com.br.desafio.dto.FuncionarioDTO;
+import com.br.desafio.dto.ProjetoDTO;
 import com.br.desafio.mapper.FuncionarioMapper;
 import com.br.desafio.repository.FuncionarioRepository;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class FuncionarioService {
@@ -17,9 +19,12 @@ public class FuncionarioService {
 
     private final FuncionarioMapper mapper;
 
-    public FuncionarioService(FuncionarioRepository repository, FuncionarioMapper mapper) {
+    private final ProjetoService projetoService;
+
+    public FuncionarioService(FuncionarioRepository repository, FuncionarioMapper mapper, ProjetoService projetoService) {
         this.repository = repository;
         this.mapper = mapper;
+        this.projetoService = projetoService;
     }
 
     public FuncionarioDTO criar(FuncionarioDTO funcionarioDto) {
@@ -78,4 +83,14 @@ public class FuncionarioService {
         repository.deleteById(id);
     }
 
+    public Set<FuncionarioDTO> buscarPorProjeto(Long projetoId) {
+        ProjetoDTO projetoDTO = projetoService.buscar(projetoId);
+
+        return projetoDTO.getFuncionarios();
+    }
+
+    public List<FuncionarioDTO> buscarPorNome(String nome) {
+        List<Funcionario> funcionarios = repository.buscarPorNome(nome);
+        return mapper.toDto(funcionarios);
+    }
 }

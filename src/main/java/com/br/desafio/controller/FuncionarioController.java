@@ -1,14 +1,13 @@
 package com.br.desafio.controller;
 
-import com.br.desafio.dto.DepartamentoDTO;
 import com.br.desafio.dto.FuncionarioDTO;
-import com.br.desafio.service.DepartamentoService;
 import com.br.desafio.service.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/funcionario")
@@ -45,6 +44,20 @@ public class FuncionarioController {
     public ResponseEntity<Void> remover(@PathVariable("id") Long id) {
         service.remover(id);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/buscar-por-projeto/{projetoId}")
+    public ResponseEntity<Set<FuncionarioDTO>> buscarPorProjeto(@PathVariable("projetoId") Long projetoId) {
+        Set<FuncionarioDTO> funcionariosDtos = service.buscarPorProjeto(projetoId);
+
+        return ResponseEntity.ok(funcionariosDtos);
+    }
+
+    @GetMapping("/buscar-por-nome/{nome}")
+    public ResponseEntity<List<FuncionarioDTO>> buscarPorProjeto(@PathVariable("nome") String nome) {
+        List<FuncionarioDTO> funcionariosDtos = service.buscarPorNome(nome);
+
+        return ResponseEntity.ok(funcionariosDtos);
     }
 
 }
