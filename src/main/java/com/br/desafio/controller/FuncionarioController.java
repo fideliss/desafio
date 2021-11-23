@@ -60,4 +60,11 @@ public class FuncionarioController {
         return ResponseEntity.ok(funcionariosDtos);
     }
 
+    @GetMapping("/buscar-por-supervisor/{supervisorId}")
+    public ResponseEntity<List<FuncionarioDTO>> buscarPorSupervisor(@PathVariable("supervisorId") Long supervisorId) {
+        List<FuncionarioDTO> funcionariosDtos = service.buscarPorSupervisor(supervisorId);
+
+        return ResponseEntity.ok(funcionariosDtos);
+    }
+
 }

@@ -128,4 +128,9 @@ public class ProjetoService {
         repository.deleteById(id);
     }
 
+    public List<ProjetoDTO> buscarPorFuncionario(Long funcionarioId) {
+        List<Projeto> projetos = repository.buscarPorFuncionario(funcionarioId);
+        return mapper.toDto(projetos);
+    }
+
 }

@@ -45,4 +45,10 @@ public class ProjetoController {
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping("/buscar-por-funcionario/{funcionarioId}")
+    public ResponseEntity<List<ProjetoDTO>> buscarPorFuncionario(@PathVariable("funcionarioId") Long funcionarioId) {
+        List<ProjetoDTO> projetos = service.buscarPorFuncionario(funcionarioId);
+        return ResponseEntity.ok(projetos);
+    }
+
 }

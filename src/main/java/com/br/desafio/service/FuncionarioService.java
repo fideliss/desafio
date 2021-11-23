@@ -93,4 +93,9 @@ public class FuncionarioService {
         List<Funcionario> funcionarios = repository.buscarPorNome(nome);
         return mapper.toDto(funcionarios);
     }
+
+    public List<FuncionarioDTO> buscarPorSupervisor(Long supervisorId) {
+        List<Funcionario> funcionarios = repository.buscarPorSupervisor(supervisorId);
+        return mapper.toDto(funcionarios);
+    }
 }
