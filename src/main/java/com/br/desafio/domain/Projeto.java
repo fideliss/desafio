@@ -3,10 +3,8 @@ package com.br.desafio.domain;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
@@ -19,5 +17,12 @@ public class Projeto extends BaseEntity {
 
     @JoinColumn(name="departamento_id")
     private Departamento departamento;
+
+    @ManyToMany
+    @JoinTable(
+            name = "funcionario_projeto",
+            joinColumns = @JoinColumn(name = "projeto_id"),
+            inverseJoinColumns = @JoinColumn(name = "funcionario_id"))
+    private Set<Funcionario> funcionarios;
 
 }
